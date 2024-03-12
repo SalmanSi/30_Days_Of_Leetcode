@@ -13,6 +13,7 @@ public:
         for(int i=1;i<len;i++){
             if(prices[min_ptr]>prices[i]){
                 min_ptr=i;
+                continue;
             }
             if(prices[i]-prices[min_ptr]>=prices[sell_ptr]-prices[buy_ptr]){
                 buy_ptr=min_ptr;
