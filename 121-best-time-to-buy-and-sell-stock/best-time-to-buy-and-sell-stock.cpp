@@ -15,7 +15,7 @@ public:
                 min_ptr=i;
                 continue;
             }
-            if(prices[i]-prices[min_ptr]>=prices[sell_ptr]-prices[buy_ptr]){
+            if(prices[i]-prices[min_ptr]>prices[sell_ptr]-prices[buy_ptr]){
                 buy_ptr=min_ptr;
                 sell_ptr=i;
             }
