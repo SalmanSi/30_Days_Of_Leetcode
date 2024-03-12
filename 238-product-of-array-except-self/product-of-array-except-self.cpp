@@ -5,7 +5,6 @@ public:
         int prd=1;
         for(int num:nums){
             result.push_back(prd);//product before
-            cout<<" "<<prd<<endl;            
             prd*=num;
         }
         prd=1;
