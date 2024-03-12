@@ -11,11 +11,11 @@ public:
         sell_ptr=1;
         int min_ptr=0;
         for(int i=1;i<len;i++){
-            if(prices[min_ptr]>prices[i]){
+            if(prices[min_ptr]>prices[i]){//find the minimin price to buy
                 min_ptr=i;
                 continue;
             }
-            if(prices[i]-prices[min_ptr]>prices[sell_ptr]-prices[buy_ptr]){
+            if(prices[i]-prices[min_ptr]>prices[sell_ptr]-prices[buy_ptr]){//if new proft using min_ptr > prevoius profit, sell_pt=i 
                 buy_ptr=min_ptr;
                 sell_ptr=i;
             }
