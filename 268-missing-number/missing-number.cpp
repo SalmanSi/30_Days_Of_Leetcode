@@ -1,9 +1,9 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-    int result=nums[0];
+    int result=0;
     int len=nums.size();
-    for(int i=1;i<len;i++){
+    for(int i=0;i<len;i++){
        result^=nums[i]^i;
     }
     result^=len;
