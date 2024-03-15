@@ -1,7 +1,10 @@
 class Solution {
 public:
     bool isPerfectSquare(int num) {
-        long int root=num;
+        long int root=num/2;
+        if(num==1){
+            return true;
+        }
         while(root*root>num){
             root/=2;
         }
