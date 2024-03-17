@@ -1,66 +1,51 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-
-        int n = nums.size();
         vector<vector<int>> result;
-        map<int, int> conjugates;
-        int current;
-        int target;
-        
-
+        int len = nums.size();
+        int conjugate;
+        int s, e;
+        vector<int> res;
         sort(nums.begin(), nums.end());
 
-        for (int i = 0; i < n; i++) {
-            if(nums[i]>0)
-            {
-                break;
+        for (int i = 0; i < len; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
             }
-            
-            int duplicate=0;
-            if(i>0)
-            {
-                if(nums[i]==nums[i-1])
-                {
-                    continue;
-                }
-            }
+            // now i is not repeated
+            conjugate = -nums[i];
+            // now two sum
+            s = i + 1;
+            e = len - 1;
 
-            current=nums[i];
-            target=-current;
-            vector<int>temp;
+            while (s < e) {
 
-            for(int j=i+1;j<n;j++)
-            {
-                 if(j>i+1 && nums[j]==nums[j-1])
-                {
-                    duplicate+=1;
-                }
-                if(nums[j]!=nums[j-1])
-                {
-                    duplicate=0;
-                }
-                if(duplicate>=2)
-                {
-                    continue;
-                }
-                
-                if(conjugates.count(nums[j])>0 && i!=j)
-                {
-                    temp.push_back(current);
-                    temp.push_back(nums[j]);
-                    temp.push_back(conjugates[nums[j]]);
+                if (nums[s] + nums[e] < conjugate) {
+                    s++;
+                } else if (nums[s] + nums[e] > conjugate) {
+                    e--;
+                } else {
 
-                    result.push_back(temp);
-                    conjugates.erase(nums[j]);
-                    temp.clear();
-                }else{
-                    conjugates[target-nums[j]]=nums[j];
+                    res.push_back(-conjugate);
+                    res.push_back(nums[s]);
+                    res.push_back(nums[e]);
+                    result.push_back(res);
+                    res.clear();
+
+                    // Avoid duplicates
+                    while (s < e && nums[s] == nums[s + 1]) {
+                        s++;
+                    }
+                    while (s < e && nums[e] == nums[e - 1]) {
+                        e--;
+                    }
+
+                    s++;
+                    e--;
                 }
             }
-            conjugates.clear();
-            temp.clear();
         }
+
         return result;
     }
 };
