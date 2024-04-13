@@ -11,11 +11,11 @@ public:
         cout<<len;
         for(int i=1;i<len;i++){
             if(merged.back()[1]>=intervals[i][0]){
-                if(merged.back()[1]>=intervals[i][1]){
+                if(merged.back()[1]>=intervals[i][1]){//if completely within the prevoius interval
                     continue;
                 }else{
                 merged.back()[1]=intervals[i][1];}
-            }else{
+            }else{//no overlap
                 merged.push_back(intervals[i]);
             }
 
