@@ -26,10 +26,10 @@ public:
             }
         }  
         if(carry ==1){
-            
             ListNode* new_node= new ListNode;
             new_node->val=1;
             new_node->next=head;
+            
             return new_node;
         }
         return head;
