@@ -26,7 +26,6 @@ class Solution:
         list=[]
         if root.val not in to_delete:
             list.append(root)
-        l2=self.helper(root,to_delete,list)
-        print(list)
+        self.helper(root,to_delete,list)
         return list
 
