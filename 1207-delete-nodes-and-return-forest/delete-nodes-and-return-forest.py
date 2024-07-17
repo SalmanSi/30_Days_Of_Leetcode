@@ -24,8 +24,9 @@ class Solution:
 
     def delNodes(self, root: Optional[TreeNode], to_delete: List[int]) -> List[TreeNode]:
         list=[]
+        s=set(to_delete)
         if root.val not in to_delete:
             list.append(root)
-        self.helper(root,to_delete,list)
+        self.helper(root,s,list)
         return list
 
