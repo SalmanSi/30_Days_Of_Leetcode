@@ -7,20 +7,20 @@
 class Solution:
     def helper(self,root,to_delete,forest):
         if root is None:
-            return None
+            return forest
         left=self.helper(root.left,to_delete,forest)
-        if left is not None:
+        if left is None:
             root.left=None
         right=self.helper(root.right,to_delete,forest)
-        if right is not None:
+        if right is None:
             root.right=None
         if root.val in to_delete:
             if root.left is not None:
                 forest.append(root.left)
             if root.right is not None:
                 forest.append(root.right)
-            return forest
-        return None
+            return None
+        return forest
 
     def delNodes(self, root: Optional[TreeNode], to_delete: List[int]) -> List[TreeNode]:
         list=[]
