@@ -1,10 +1,14 @@
 class Solution:
     def getMapped(self,mapping,num):
-        mapped=0
-        digits=[int(digit) for digit in str(num)]
-        for digit in digits:
-            mapped=mapped*10+mapping[digit]
-        return mapped
+        mapped_num=0
+        digit_count=1
+        if num==0:
+            return mapping[0]
+        while num>0:
+            num,digit=divmod(num,10)
+            mapped_num+=mapping[digit]*digit_count
+            digit_count*=10
+        return mapped_num
     def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
         mapped_nums=[]
         for num in nums:
