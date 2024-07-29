@@ -28,21 +28,21 @@ class Solution:
         #more efficient instead of taking dot product
         length=len(rating)
         res=0
-        for i in range(0,length):
+        for i,current_rating in enumerate(rating):
                 
             right_smaller_count,left_smaller_count=0,0
             right_larger_count,left_larger_count=0,0
 
-            for j in range(i,length):# right count
-                if rating[j]>rating[i]:
+            for j in rating[i+1:]:# right count
+                if j>current_rating:
                     right_larger_count+=1
-                elif rating[j]<rating[i]:
+                elif j<current_rating:
                     right_smaller_count+=1
 
-            for j in range(0,i):# left count
-                if rating[j]>rating[i]:
+            for j in rating[:i]:# left count
+                if j>current_rating:
                     left_larger_count+=1
-                elif rating[j]<rating[i]:
+                elif j<current_rating:
                     left_smaller_count+=1  
 
             res+=left_smaller_count*right_larger_count+left_larger_count*right_smaller_count
