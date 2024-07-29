@@ -7,17 +7,22 @@ class Solution:
         left_larger_count=[0]*length
 
         for i in range(0,length):
-            for j in range(0,length):
-                if j>i:#right larger_count
-                    if rating[j]>rating[i]:
-                        right_larger_count[i]+=1
-                    elif rating[j]<rating[i]:
-                        right_smaller_count[i]+=1
-                elif j<i:#left larger count
-                    if rating[j]>rating[i]:
-                        left_larger_count[i]+=1
-                    elif rating[j]<rating[i]:
-                        left_smaller_count[i]+=1
+            for j in range(i,length):
+                # if j>i:#right larger_count
+                if rating[j]>rating[i]:
+                    right_larger_count[i]+=1
+                elif rating[j]<rating[i]:
+                    right_smaller_count[i]+=1
+                # elif j<i:#left larger count
+                #     if rating[j]>rating[i]:
+                #         left_larger_count[i]+=1
+                #     elif rating[j]<rating[i]:
+                #         left_smaller_count[i]+=1
+            for j in range(0,i):
+                if rating[j]>rating[i]:
+                    left_larger_count[i]+=1
+                elif rating[j]<rating[i]:
+                    left_smaller_count[i]+=1                  
 
         ans=0
         ans+=sum(a*b for a,b in zip(left_smaller_count,right_larger_count))
