@@ -1,7 +1,7 @@
 class Solution {
 public:
     string kthDistinct(vector<string>& arr, int k) {
-        map<string,int> freq_count;
+        unordered_map<string,int> freq_count;
         
         for (const auto& word:arr){
             freq_count[word]++;
