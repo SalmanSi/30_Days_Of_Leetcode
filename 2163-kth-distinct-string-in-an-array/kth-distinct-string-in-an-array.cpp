@@ -7,10 +7,10 @@ public:
             freq_count[word]++;
         }
         int j=1;
-        for (int i=0;i<arr.size();i++){
-            if (freq_count[arr[i]]==1){
+        for (const auto& word:arr){
+            if (freq_count[word]==1){
                 if (k==j){
-                    return arr[i];
+                    return word;
                 }
                 j++;
             }
