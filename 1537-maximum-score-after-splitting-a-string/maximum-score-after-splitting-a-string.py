@@ -7,7 +7,6 @@ class Solution:
                 prefixSum0.append(prefixSum0[-1]+1)
             else:
                 prefixSum0.append(prefixSum0[-1])
-        print(prefixSum0)
         totalZeros=prefixSum0[-1]
         max_=0
         scores=[]
