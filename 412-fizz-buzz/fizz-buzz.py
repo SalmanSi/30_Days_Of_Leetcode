@@ -8,18 +8,14 @@ class Solution(object):
         ans=[]
 
         for i in range(n):
-            word=str(i+1)
-            flag=True
+            word=""
             if (i+1)%3==0:
-                word="Fizz"
-                flag=False
+                word+="Fizz"
             if (i+1)%5==0:
-                if flag:
-                    word="Buzz"
-                else:
-                    word+="Buzz"
+                word+="Buzz"
+            if len(word)==0:
+                word+=str(i+1)    
             ans.append(word)
-            print(word)
         
         return ans
         
