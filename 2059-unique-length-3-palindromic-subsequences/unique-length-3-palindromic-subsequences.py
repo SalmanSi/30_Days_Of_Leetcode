@@ -12,9 +12,9 @@ class Solution:
             while(r-l>1 and s[l]!=s[r]):
                 r-=1# come from the right to find the rightmost occurence of the char
             
-            myset=set()
-            for i in range(l+1,r):
-                myset.add(s[i])
+            
+            
+            myset=set(s[l+1:r])
             left_char_set.add(s[L])
             ans+=len(myset)
         return ans
