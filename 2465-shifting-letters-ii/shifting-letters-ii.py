@@ -22,8 +22,8 @@ class Solution:
         ans=list(s)
 
         for i in range(len(s)):
-            # if final_shifts[i]==0:
-            #     continue
+            if final_shifts[i]==0:
+                continue
             ans[i]=chr(ord(ans[i])+(final_shifts[i]%26))
             if ans[i]>'z':
                 ans[i]=chr(ord(ans[i])-26)
