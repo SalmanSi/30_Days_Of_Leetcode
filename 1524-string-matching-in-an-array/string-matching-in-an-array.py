@@ -1,19 +1,23 @@
 class Solution:
+    def isSubStringOf(self, main:str,sub:str) -> bool:
+        sub_len=len(sub)
+        main_len=len(main)
+        for startIndex in range(main_len):
+            if main[startIndex:startIndex+sub_len]==sub:
+                return True
+        return False
+
     def stringMatching(self, words: List[str]) -> List[str]:
-        words_joined=' '.join(words)
         ans=[]
-        for word in words:
-            if words_joined.count(word)>1:
-                ans.append(word)
+        for cur_word in words:
+            for other_word in words:
+                if cur_word==other_word:
+                    continue
+                if self.isSubStringOf(other_word,cur_word):
+                    ans.append(cur_word)
+                    break
         return ans
 
-        # n=len(words)
-        # words.sort(key=len)
-        # ans=[]
 
-        # for i in range(n):
-        #     for j in range(i+1,n):
-        #         if words[i] in words[j]:
-        #             ans.append(words[i])
-        #             break
-        # return ans
+
+  
