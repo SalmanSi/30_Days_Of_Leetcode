@@ -41,8 +41,8 @@ class Solution:
         
 
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        # root=self.recurse(l1,l2,None,0)
-        # return root
+        root=self.recurse(l1,l2,None,0)
+        return root
 
         dummyNode=ListNode(0)
         curr=dummyNode
