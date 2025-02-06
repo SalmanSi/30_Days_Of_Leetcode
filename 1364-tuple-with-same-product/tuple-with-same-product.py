@@ -10,5 +10,6 @@ class Solution:
         ans=0
         for value in product_count.values():
             if value>1:
-                ans+=math.comb(value,2)*8
+                # ans+=math.comb(value,2)*8
+                ans+=2*value*2*(value-1)
         return ans
