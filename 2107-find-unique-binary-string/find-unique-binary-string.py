@@ -1,21 +1,25 @@
 class Solution:
 
 
-    def getAllString(self,n:int,nums: set,myset:set, cur:str) -> None:
+    def getAllString(self,n:int,nums: set, cur:str) -> None:
         if len(cur)==n:
             if cur not in nums:
-                myset.add(cur)
-            return
+                return cur
+            else:
+                return 'null'
         if len(cur)<n:     
-            self.getAllString(n,nums,myset,cur+'0')
-            self.getAllString(n,nums,myset,cur+'1')
-        return      
+            ans= self.getAllString(n,nums,cur+'0')
+            if ans !="null":
+                return ans
+            ans= self.getAllString(n,nums,cur+'1')
+            if ans!="null":
+                return ans
+        return 'null'
 
     def findDifferentBinaryString(self, nums: List[str]) -> str:
         n=len(nums[0])
         nums=set(nums)
-        myset=set()
+        
 
-        self.getAllString(n,nums,myset,"")
-        for x in myset:
-            return x
+        ans=self.getAllString(n,nums,"")
+        return ans
