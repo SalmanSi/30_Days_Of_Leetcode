@@ -5,9 +5,10 @@ class Solution:
         if len(cur)==n:
             if cur not in nums:
                 myset.add(cur)
-            return 
-        self.getAllString(n,nums,myset,cur+'0')
-        self.getAllString(n,nums,myset,cur+'1')
+            return
+        if len(cur)<n:     
+            self.getAllString(n,nums,myset,cur+'0')
+            self.getAllString(n,nums,myset,cur+'1')
         return      
 
     def findDifferentBinaryString(self, nums: List[str]) -> str:
