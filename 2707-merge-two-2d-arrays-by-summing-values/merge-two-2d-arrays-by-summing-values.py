@@ -5,14 +5,15 @@ class Solution:
         c2=0
         while c1<len(nums1) and c2<len(nums2):
             
-            while c1<len(nums1) and c2<len(nums2) and  nums1[c1][0]<nums2[c2][0]:
+            if nums1[c1][0]<nums2[c2][0]:
                 merged.append(nums1[c1])
                 c1+=1
-            while  c1<len(nums1) and c2<len(nums2) and nums1[c1][0]==nums2[c2][0]:
+            elif nums1[c1][0]==nums2[c2][0]:
                 merged.append([nums1[c1][0],nums1[c1][1]+nums2[c2][1]])
                 c1+=1
                 c2+=1
-            while c1<len(nums1) and c2<len(nums2) and  nums1[c1][0]>nums2[c2][0]  :
+            
+            elif  nums1[c1][0]>nums2[c2][0]:
                 merged.append(nums2[c2])
                 c2+=1
             
