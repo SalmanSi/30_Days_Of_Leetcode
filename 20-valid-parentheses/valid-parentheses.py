@@ -2,13 +2,12 @@ class Solution:
     def isValid(self, s: str) -> bool:
         mymap={')':'(','}':'{',']':'['}
         stack=[]
-        for i in range(len(s)):
-            if stack:
-                if s[i] in mymap:
-                    if mymap[s[i]]!=stack.pop():
-                        return False
-                    continue
-            stack.append(s[i])
+        for char in s:
+            if char in mymap.values():
+                stack.append(char)
+            else:
+                if not stack or mymap[char]!=stack.pop():
+                    return False
         return not stack
             
 
