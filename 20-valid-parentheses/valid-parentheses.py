@@ -1,15 +1,14 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        mystr=list(s)
+        mymap={')':'(','}':'{',']':'['}
         stack=[]
-        for c in mystr:
-            if len(stack)==0:
-                stack.append(c)
-            elif c =='{' or c=='(' or c=='[':
-                stack.append(c)
-            elif c==')' and stack[-1]!='(' or c=='}' and stack[-1]!='{' or c==']' and stack[-1]!='[' :
-                return False
-            else:
-                stack.pop()
+        for i in range(len(s)):
+            if stack:
+                if s[i] in mymap:
+                    if mymap[s[i]]!=stack.pop():
+                        return False
+                    continue
+            stack.append(s[i])
+        return not stack
             
-        return  len(stack)<=0
+
