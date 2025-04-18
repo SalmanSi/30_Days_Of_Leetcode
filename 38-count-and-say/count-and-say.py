@@ -2,17 +2,18 @@ class Solution:
     def rle(self,cur):
         last=cur[0]
         count=1
-        new=''
-        for i in range(len(cur)-1):
-            if cur[i]!=cur[i+1]:
-                new+=str(count)
-                new+=str(cur[i])
+        new=[]
+        for c in cur[1:]:
+            if c!=last:
+                new.append(count)
+                new.append(last)
+                last=c
                 count=1
             else:
                 count+=1
-        new+=str(count)
-        new+=str(cur[-1])
-        return new
+        new.append(count)
+        new.append(last)
+        return ''.join(map(str,new))
 
 
 
