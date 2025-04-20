@@ -1,7 +1,13 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        t=list(t)
-        s=list(s)
-        s.sort()
-        t.sort()
-        return s==t
+        mymap=defaultdict(int)
+        for c in s:
+            mymap[c]+=1
+
+        for c in t:
+            if c not in mymap or mymap[c]==0:
+                return False
+            else:
+                mymap[c]-=1
+        return sum(list(mymap.values()))==0       
+        
