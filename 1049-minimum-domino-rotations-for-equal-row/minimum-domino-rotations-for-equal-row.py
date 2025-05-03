@@ -6,15 +6,12 @@ class Solution:
         
         bottom_freq_map=Counter(bottoms)
         bottom_freq_map=dict(sorted(bottom_freq_map.items(),key=lambda x:x[1],reverse=True))
-        print(top_freq_map)
-        print(bottom_freq_map)
-
+        
         overlap_map=defaultdict(int)
         for i in range(len(tops)):
             if tops[i]==bottoms[i]:
                 overlap_map[tops[i]]+=1
         overlap_map=dict(overlap_map)
-        print(overlap_map)
 
         ans=[]
         size=len(tops)
