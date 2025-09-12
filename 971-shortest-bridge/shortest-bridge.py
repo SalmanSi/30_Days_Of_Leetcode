@@ -49,4 +49,3 @@ class Solution:
                 cur_dist=abs(t2[0]-t1[0])+abs(t2[1]-t1[1])-1
                 dist=min(dist,cur_dist)
         return dist
-        print(i_dict)
