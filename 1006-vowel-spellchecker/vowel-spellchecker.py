@@ -1,20 +1,5 @@
 class Solution:
     def spellchecker(self, wordlist: List[str], queries: List[str]) -> List[str]:
-        
-
-        def check_v_error(q,word):
-            q=q.lower()
-            word=word.lower()
-            vowels="aeiou"
-            if len(q)!=len(word):
-                return False
-            for i in range(len(q)):
-                if q[i] != word [i]:
-                    if q[i] in vowels and word[i] in vowels:
-                        pass
-                    else:
-                        return False
-            return True
         answer=[]
         # 1- exact match, then return same
         # 2- capitilzation mismatcj
@@ -36,7 +21,6 @@ class Solution:
             error_map[key].append(word)
         actual_set=set(wordlist)
 
-        print(error_map)
         for q in queries:
             if q in actual_set:
                 answer.append(q)
